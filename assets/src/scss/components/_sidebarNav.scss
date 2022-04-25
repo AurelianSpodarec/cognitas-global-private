@@ -1,0 +1,291 @@
+.msoSideNavigation {
+	display: none;
+    @include breakpoint(xlarge) {
+		display: block;
+		margin-right: 30px;
+		margin-top: 15px;
+	}
+	.sideNav {
+		width: 100%;
+		list-style-type: none;
+		margin: 0;
+		padding: 0 0 20px;
+		li {
+			display: flex;
+			flex-direction: column;
+			flex-shrink: 0;
+			&.current-menu-item {
+				a {
+					color: $blue;
+					font-weight: 400;
+				}
+			}
+			@include breakpoint(xlarge) {
+				&:hover {
+					a {
+						color: $blue;
+					}
+				}
+			}
+			a {
+				display: block;
+				cursor: pointer;
+				color: #8A8A8A;
+				font-size: 18px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				border-bottom: 2px solid rgba(200, 200, 200, 0.2);
+				transition: color 0.3s ease-out;
+				padding: 25px 0;
+				font-weight: 300;
+			}
+		}
+	}
+	/*.in-this-section {
+		display: block;
+		color: $white;
+		background: $blue;
+		box-sizing: border-box;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 22px;
+		width: 100%;
+		position: relative;
+		padding: 25px 40px 25px 25px;
+		z-index: 2;
+	}
+	.msoMainNavItem {
+		display: block;
+		color: $white;
+		background: $red;
+		box-sizing: border-box;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 22px;
+		width: 100%;
+		position: relative;
+		padding: 15px 40px 15px 25px;
+		z-index: 2;
+	}
+	ul {
+		float: none;
+		width: 100%;
+		list-style-type: none;
+		margin: 0;
+		padding: 0 0 20px;
+		overflow: hidden;
+		li {
+			width: 100%;
+			position: relative;
+			padding: 0;
+			&.menu-item-has-children {
+				border-bottom: 2px solid $blueLight;
+			}
+			> a {
+				color: $white;
+				background: $blue;
+				box-sizing: border-box;
+				font-size: 18px;
+				line-height: 22px;
+				width: 100%;
+				position: relative;
+				padding: 15px 40px 15px 40px;
+				display: block;
+				z-index: 2;
+				//border-bottom: 1px solid $navHover;
+				-webkit-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+				-moz-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+				-o-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+				transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+			}
+			button {
+				display: flex;
+				position: absolute;
+				right: 0;
+				border: 0;
+				top: 0;
+				width: 49px;
+				height: 52px;
+				background: $blueLight;
+				z-index: 4;
+				transition: all 0.3s ease-out;
+				//border: 1px solid $white;
+				//border-right: 0;
+				cursor: pointer;
+				&:focus {
+					outline: 0;
+				}
+				&:before {
+					font-family: "FontAwesome";
+					content: '\f105';
+					position: absolute;
+					margin: auto;
+					top: 0;
+					right: 0;
+					width: 100%;
+					height: 100%;
+					color: $white;
+					display: flex;
+					justify-content: center;  
+					align-items: center;
+					font-size: 1.4em;
+					opacity: 1;
+					transform-origin: center center;
+					transform: rotate(90deg);
+					transition: all 0.3s ease-out;
+				}
+				@include transition(transform);
+			}
+			ul {
+				padding: 5px 0 10px;
+				background: $navHover;
+				display: none;
+				li {
+					padding-left: 20px;
+					a {
+						text-transform: none;
+						font-weight: 400;
+						line-height: 22px;
+						background: $navHover;
+						padding: 10px 25px 10px 40px;
+					}
+				}
+			}
+			.msoArrowContainer {
+				position: absolute;
+				left: -20px;
+				top: 0;
+				height: 38px;
+				width: 0;
+				background: $navHover;
+				z-index: 1;
+				-webkit-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+				-moz-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+				-o-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+				transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+			}
+			&:hover {
+				> a {
+					//padding-left: 40px;
+					//border-bottom: 1px solid transparent;
+					background: $navHover;
+					color: $white;
+				}
+				.msoArrowContainer {
+					width: calc(100% + 20px);
+				}
+			}
+			&.current-menu-parent {
+				> .sub-menu {
+					display: block;
+				}
+			}
+			&.current-menu-item {
+				> a {
+					padding-left: 40px;
+					background: $navHover;
+					color: #ff0000;
+					border: 0;
+				}
+				ul {
+					background: $navHover;
+					display: block;
+					li {
+						-webkit-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+						-moz-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+						-o-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+						transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+						> a {
+							color: $white;
+							border: 0;
+							padding-left: 40px;
+						}
+						&.current-menu-item {
+							background: none;
+							> a {
+								color: $red;
+								padding-left: 40px;
+								border: 0;
+							}
+						}
+					}
+				}
+				.msoArrowContainer {
+					width: calc(100% + 20px);
+				}
+			}
+			&:last-of-type {
+				a {				
+					border-bottom: 0;
+				}
+			}
+		}
+	}*/
+}
+
+.sidebarNav {
+	.subnav-header {
+		display: block;
+		color: $primary;
+		font-size: 20px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		border-bottom: 2px solid rgba(200, 200, 200, 0.2);
+		transition: color 0.3s ease-out;
+		padding: 15px 0;
+		font-family: $heading-font;
+		font-weight: 400;
+	}
+	.sidebar-back {
+		display: inline-block;
+		cursor: pointer;
+		color: #8a8a8a;
+		font-size: 16px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		transition: color 0.3s ease-out;
+		margin: 15px 0 0;
+		font-weight: 300;
+		@include breakpoint(xxlarge) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	.sidebar-share {
+		color: $blue;
+		text-transform: uppercase;
+		border-top: 2px solid rgba(200, 200, 200, 0.2);
+		font-family: $heading-font;
+		color: $pink;
+		font-weight: 400;
+		letter-spacing: 2px;
+		padding: 18px 0 15px 0;
+		margin-top: 40px;
+		font-size: 16px;
+		ul {
+			display: flex;
+			margin-top: 8px;
+			li {
+				margin-right: 20px;
+				font-size: 30px;
+				a {
+					color: #8a8a8a;
+					transition: all 0.3s ease-out;
+				}
+				@include breakpoint(medium) {
+					&:hover {
+						a {
+							color: $primary;
+						}
+					}
+				}
+			}
+		}
+	}
+	.sidebar-info {
+		.icon {
+			margin-right: 5px;
+		}
+	}
+}

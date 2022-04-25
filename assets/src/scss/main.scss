@@ -1,0 +1,402 @@
+// ==========================================================================
+// # Main.scss - Order in this file matters!
+// ==========================================================================
+
+
+$fa-font-path : "./../../../build/fonts/fonts";
+
+// ==========================================================================
+// 0-lib
+// ==========================================================================
+@import "0-lib/flexboxgrid";
+
+// ==========================================================================
+// 1-helper
+// ==========================================================================
+@import "1-helpers/variables"; 
+@import "1-helpers/mixins";
+@import "1-helpers/l5-mixins";
+@import "1-helpers/l5-utilities";
+
+// ==========================================================================
+// 2-variables
+// ==========================================================================
+@import "2-variables/units";
+@import "2-variables/breakpoints";
+
+
+
+
+// WARNING ⚠️⚠️⚠️
+// ==========================================================================
+// Start - SPAGHETTI CODE
+
+@import "3-base/animateOnView";
+@import "3-base/layout";
+@import "3-base/home";
+@import "3-base/page";
+@import "3-base/ie";
+@import "components/global";
+ 
+// END - SPAGHETTI CODE
+// ==========================================================================
+// WARNING ⚠️⚠️⚠️
+
+
+
+
+// ==========================================================================
+// 3-base
+// ==========================================================================
+@import "3-base/l5-base";
+@import "3-base/l5-footer";
+
+// ==========================================================================
+// 4-layouts
+// ==========================================================================
+@import "4-layouts/l5-header";
+
+// ==========================================================================
+// 6-modules
+// ==========================================================================
+
+
+
+
+
+// ==========================================================================
+// ???
+// ==========================================================================
+.scss_errors {
+    display: none;
+}
+
+.logged-in .scss_errors {
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    background: white;
+    height: 90%;
+    width: 90%;
+    max-width: 1024px;
+    max-height: 600px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 0px 0px 100vw rgba(0,0,0,0.6);
+    em {
+        white-space: normal;
+    }
+}
+
+.emergency_popup {
+    opacity:0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: unset;
+    transition: all 0.75s;
+    &.active {
+        opacity:1;
+        visibility: visible;
+        max-height: 100vh;
+    }
+    .popup_content {
+        @include centerIt($pos:fixed);
+        background: $white;
+        z-index: 5000;
+        max-height: 90vh;
+        width: 90vw;
+        max-width: 600px;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+        padding: 2.01em;
+        
+        h2 {
+            padding: 0;
+            margin: 0 0 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        img {
+            height: auto !important;
+        }
+        *:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .close {
+            @include popupClose;
+        }
+    }
+
+    &:after {
+        content: "";
+        z-index: 100;
+        @include centerIt($pos:fixed);
+        background: rgba(196, 196, 196, 0.7);
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+body {
+    .gravity-form-component {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        background: #030134;
+        @include breakpoint(medium) {
+            padding-top: 2em;
+            padding-bottom: 2em;
+        }
+        .component-title-wrapper {
+            padding-top: 2em;
+            padding-bottom: 0em;
+            .component-title {
+                color: $white;
+            }
+        }
+        .gform_wrapper {
+            padding: 0 15px;
+            @include breakpoint(medium) {
+                padding: 0 30px;
+            }
+            .gform_fields {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto !important;
+                li.gfield {
+                    width: 100%;
+                    padding-right: 0;
+                }
+            }
+            .validation_message {
+                color: $pink;
+            }
+            div.validation_error {
+                color: $pink;
+                border-top: 2px solid $pink;
+                border-bottom: 2px solid $pink;
+            }
+            .gfield_required {
+                color: $pink;
+            }
+            li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), li.gfield_error textarea {
+                border-color: $pink;
+            }
+        }
+        .gform_wrapper li.gfield.gfield_error {
+            margin-bottom: 0 !important;
+        }
+        .gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium {
+            width: 100%;
+        }
+        .gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio], .gform_wrapper ul.gfield_checkbox li input[type=checkbox] {
+            margin-top: 5px;
+            @include breakpoint(medium) {
+                margin-top: 0;
+            }
+        }
+        .gform_wrapper .gfield label {
+            color: $white;
+            font-weight: 400;
+        }
+        .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+            padding: 2px 15px;
+            @include breakpoint(medium) {
+                padding: 15px;
+            }
+        }
+        .gform_wrapper li.gfield_error div.ginput_complex.ginput_container label {
+            color: $pink;
+        }
+        .gform_wrapper.gf_browser_chrome .ginput_complex .ginput_right select, .gform_wrapper.gf_browser_chrome .ginput_complex select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
+            height: 55px;
+        }
+        .gform_wrapper ul li.gfield {
+            margin-top: 18px;
+            @include breakpoint(medium) {
+                margin-top: 25px;
+            }
+        }
+        .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+            max-width: none !important;
+        }
+        .gform_footer {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto !important;
+            text-align: right;
+            .button {
+                color: $white !important;
+                background: $pink;
+                border: none;
+                min-width: 200px;
+                margin-right: 0 !important;
+                font-size: 14px !important;
+                line-height: 20px !important;
+                transform: perspective(1px) translateZ(0);
+                transition: all 0.3s ease-out;
+                transform: perspective(1px) translateZ(0);
+                @include breakpoint(xxlarge) {
+                    &:hover {
+                        transform: scale(1.1);
+                        box-shadow: 0 10px 10px -10px rgba(255, 0, 137, 0.8);
+                        &.fill-blue {
+                        box-shadow: 0 10px 10px -10px rgba(0, 180, 255, 0.8);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .gform_wrapper {
+        .gform_footer {
+            display: block;
+            .button {
+                color: $blue;
+                border-color: $blue;
+                width: auto !important;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        &.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+            background: transparent !important;
+            border: 0 !important;
+            padding: 0 !important;
+        }
+
+        li.gfield.gfield_error.gfield_contains_required div.ginput_container {
+            margin: 0;
+            select {
+                border-color: #790000;
+            }
+        }
+
+        .top_label {        
+            .gfield {
+                div.ginput_container {
+                    margin-top: 2px;
+                }
+            }
+        }
+        .gfield {
+            label {
+                color: $blue;
+            }
+        }
+
+        ul {
+            margin-left: 0;
+            padding-left: 0;
+            list-style-type: none;
+            li {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+        div.gform_body {
+            line-height: 30px;
+            ul.gform_fields {
+                li.gfield.gfield_html {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .field_description_below .gfield_description {
+            padding-top: 5px;
+            font-style: italic;
+            line-height: 1.4em;
+        }
+
+        li.gfield.field_description_below+li.gsection {
+            margin-top: 80px;
+        }
+
+        input:not([type="submit"]), textarea, select {
+            border-radius: 0;
+            border: 1px solid rgb(204, 204, 204);
+            padding: 0.5em;
+        }
+
+        select {
+            height: 38px;
+            border: 1px solid rgb(204, 204, 204);
+            background: #fff;
+        }
+
+        .ginput_container_date {
+            display: flex;
+            align-items: center;
+            img {
+                margin: 0;
+            }
+        }
+
+        
+        .gf_repeater_add {
+            background: transparentize($secondary,0.1);
+            color: $white;
+            height: 36px;
+            line-height: 36px;
+            text-transform: uppercase;
+            min-width: 250px;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            font-size: 14px;
+            position: relative;
+            @include breakpoint(medium) {
+                display: inline-block;
+            }
+            &:before {
+                content: "Add another visitor";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            img {
+                display: none;
+            }
+        }
+        .gf_repeater_remove {
+            margin-left: 0;
+            background: transparentize(red,0.3);
+            color: $white;
+            height: 36px;
+            line-height: 36px;
+            text-transform: uppercase;
+            min-width: 250px;
+            text-align: center;
+            display: block;
+            font-size: 14px;
+            cursor: pointer;
+            position: relative;
+            @include breakpoint(medium) {
+                display: inline-block;
+                margin-left: 10px;
+            }
+            &:before {
+                content: "Remove this visitor";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            img {
+                display: none;
+            }
+        }
+    }
+}

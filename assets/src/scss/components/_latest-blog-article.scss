@@ -1,0 +1,95 @@
+section.latest-blog-article {
+    background: #F1F1F1;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    .latest-blog-article-container {
+        margin: auto;
+        .latest-blog-article-item {
+            background-size: cover;
+            width: 100%;
+            padding: 20px 0 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include breakpoint(xlarge) {
+                padding: 120px 0 100px;
+            }
+            .blog-article-details {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                .blog-heading {
+                    color: $white;
+                    font-size: 46px;
+                    line-height: 60px;
+                    font-family: $fancy-heading-font;
+                    margin-top: 30px;
+                    margin-bottom: 20px;
+                    @include breakpoint(xxlarge) {
+                        font-size: 100px;
+                        line-height: 150px;
+                    }
+                }
+                .blog-details {
+                    color: $white;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    font-family: $body-alt-font;
+                    justify-content: center;
+                    color: $white;
+                    @include breakpoint(medium) {
+                        justify-content: flex-start;
+                    }
+                    span {
+                        font-size: 20px;
+                        line-height: 28px;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        text-align: center;
+                        @include breakpoint(medium) {
+                            text-align: left;
+                        }
+                        &:nth-child(1) {
+                            margin-bottom: 5px;
+                            @include breakpoint(medium) {
+                                margin-bottom: 0;
+                            }
+                        }
+                        &:nth-child(1), &:nth-child(2) {
+                            @include breakpoint(medium) {
+                                padding-right: 10px;
+                            }
+                        }
+                        &:nth-child(2) {
+                            display: none;
+                            @include breakpoint(medium) {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+                .blog-summary {
+                    margin-top: 20px;
+                    color: $white;
+                    font-family: $body-alt-font;
+                    font-size: 20px;
+                    line-height: 28px;
+                    text-align: center;
+                    margin-top: 10px;
+                    max-width: 70%;
+                }
+                .read-article {
+                    border: 2px solid $white;
+                    color: $white;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    padding: 12px 30px;
+                    margin-top: 26px;
+                    font-family: $body-alt-font;
+                }
+            }
+        }
+    }
+}

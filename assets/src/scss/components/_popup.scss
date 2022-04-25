@@ -1,0 +1,122 @@
+/*.popup {
+  width: 90%;
+
+  padding: 0;
+  overflow: visible;
+  display: none;
+  background-color: transparent;
+
+  @include breakpoint(large) {
+    width: 80%;
+    top: rem(60);
+    padding-bottom: rem(60);
+  }
+
+  &-close {
+    position: absolute;
+    transition: opacity 0.25s ease;
+    height: rem(42);
+    cursor: pointer;
+    outline: none;
+    z-index: 20;
+
+    &:focus {
+      outline: none;
+    }
+
+    @include breakpoint(large) {
+      top: rem(25);
+      bottom: 103%;
+      right: rem(-4);
+      text-shadow: none;
+    }
+
+    @include breakpoint(large down) {
+      top: rem(15);
+      right: rem(15);
+      bottom: auto;
+      text-shadow: 0 0 5px black;
+    }
+
+    @media screen and (max-height: 780px) {
+      top: rem(15);
+      right: rem(15);
+      bottom: auto;
+      text-shadow: 0 0 5px black;
+    }
+
+    &::before {
+      content: '\f2d7';
+      color: $white;
+      font-size: rem(45);
+      font-family: 'Ionicons';
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &-header {
+    padding-top: rem(20);
+    padding-bottom: rem(20);
+  }
+
+  &-title {
+    color: $white;
+    font-size: rem(24);
+    width: 70%;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint(large) {
+      font-size: rem(37);
+    }
+  }
+
+  &-media {
+    height: rem(250);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include breakpoint(large) {
+      height: rem(500);
+    }
+  }
+
+  &-content {
+    background-color: $white;
+    padding: rem(30 15);
+
+    @include breakpoint(large) {
+      padding: rem(45 64 56 64);
+    }
+
+    p {
+      margin-bottom: rem(27);
+    }
+
+    h3 {
+      margin-top: rem(45);
+      font-size: rem(25);
+      margin-bottom: 0;
+    }
+  }
+
+  &-itemWrapper {
+    height: 100%;
+
+    .video-js {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.fancybox-arrow {
+  display: none;
+}*/

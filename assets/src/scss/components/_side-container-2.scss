@@ -1,0 +1,85 @@
+.side-container-2-inner {
+    position: relative;
+    .blog-news-side-image {
+        width: 100%;
+    }
+    .where-to-next-container {
+        margin-bottom: 20px;
+        .where-to-next-title {
+            color: $black;
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 60px;
+            background: #D1D1D1;
+            padding: 0 20px;
+        }
+        .where-to-next-image-button {
+            background-size: cover;
+            padding-bottom: 70%;
+            position: relative;
+            a {
+                border: 2px solid $white;
+                color: $white;
+                text-transform: uppercase;
+                font-size: 18px;
+                padding: 12px 30px;
+                font-family: 'Open Sans', sans-serif;
+                display: inline-block;
+                position: absolute;
+                width: calc(100% - 40px);
+                bottom: 20px;
+                left: 20px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+        }
+        .where-to-next-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            li {
+                background: #D1D1D1;
+                border-top: 2px solid $white;
+                a {
+                    color: $blue;
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 18px 20px;
+                    span {
+                        &.arrow {
+                            margin-right: 6px;
+                            margin-left: 20px;
+                            flex-shrink: 0;
+                            background-image: url(../../assets/src/img/blue-right-arrow.png);
+                            width: 12px;
+                            height: 18px;
+                            display: block;
+                            transition: margin 0.3s ease-out;
+                        }
+                    }
+                    &:hover {
+                        span.arrow {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .side-container-images {
+        .side-container-image-item {
+            margin-bottom: 2px;
+            a {
+                display: block;
+            }
+            img {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                display: block;
+            }
+        }
+    }
+}

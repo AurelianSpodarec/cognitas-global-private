@@ -1,0 +1,241 @@
+section.image-blocks {
+    margin-bottom: 4em;
+    .home &, .lower-content-container & {
+        background: #DBDBDB;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-bottom: 0;
+        @include breakpoint(xxlarge) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+    .image-block-items-container {
+        position: relative;
+        @include breakpoint(medium) {
+            display: flex;
+        }
+        @include breakpoint(medium) {
+            .left-container {
+                width: 100%;
+                display: flex;
+            }
+        }
+        .image-block-item {
+            width: 100%;
+            overflow: hidden;
+            background-size: cover;
+            position: relative;
+            margin-right: 0;
+            margin-bottom: 3vw;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+            @include breakpoint(medium) {
+                margin-right: 10px;
+                margin-bottom: 0;
+                width: calc(100% - 20px);
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+            .bgOverlay {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                bottom: 0;
+                opacity: 0.5;
+                z-index: 2;
+                transition: all 0.3s ease;
+                background: linear-gradient(180deg, rgba(0, 35, 91, 0) 2.08%, #00235B 73.96%);
+            }
+            &:after {
+                background: $black;
+                opacity: 0.2;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                content: '';
+            }
+            .image-block-image {
+                position: static;
+                background-size: cover;
+                background-position: center;
+                width: 100%;
+                height: 70vw;
+                transform: scale(1);
+                @include breakpoint(medium) {
+                    height: 0;
+                    padding-bottom: 120%;
+                }
+                @include breakpoint(xlarge) {
+                    height: 0;
+                    padding-bottom: 140%;
+                }
+                @include breakpoint(xxlarge) {
+                    height: 0;
+                    padding-bottom: 140%;
+                }
+            }
+            .image-block-content {
+                padding: 0;
+                z-index: 3;
+                flex-grow: 1;
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                width: calc(100% - 40px);
+                text-align: center;
+                transition: all 0.3s ease;
+                @include breakpoint(xxlarge) {
+                    bottom: 20px;
+                    left: 20px;
+                    width: calc(100% - 40px);
+                }
+                .image-block-title {
+                    margin: 0 0 26px;
+                    font-size: 30px;
+                    line-height: 32px;
+                    color: $white;
+                    display: inline-block;
+                    &:after {
+                        display: none;
+                    }
+                    @include breakpoint(medium) {
+                        font-size: 16px;
+                        line-height: 30px;
+                    }
+                    @include breakpoint(xlarge) {
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+                    @include breakpoint(xxlarge) {
+                        font-size: 24px;
+                        line-height: 32px;
+                    }
+
+
+
+                    
+                    .home & {
+                        margin: 0 0 26px;
+                        font-size: 30px;
+                        line-height: 32px;
+                        color: $white;
+                        display: inline-block;
+                        &:after {
+                            display: none;
+                        }
+                        @include breakpoint(medium) {
+                            font-size: 16px;
+                            line-height: 30px;
+                        }
+                        @include breakpoint(xlarge) {
+                            font-size: 20px;
+                            line-height: 30px;
+                        }
+                        @include breakpoint(xxlarge) {
+                            font-size: 26px;
+                            line-height: 34px;
+                            &:before {
+                                width: 25px;
+                                height: 30px;
+                                position: absolute;
+                                content: '';
+                                background-image: url(../../assets/src/img/title-left.png);
+                                margin-right: 10px;
+                                display: inline-block;
+                                bottom: auto;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                left: -35px;
+                            }
+                            &:after {
+                                margin-left: 10px;
+                                display: inline-block;
+                                bottom: auto;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+                        }
+                        @include breakpoint(xxxlarge) {
+                            font-size: 34px;
+                            line-height: 42px;
+                        }
+                    }
+                }
+                .component-subtitle {
+                    font-weight: 400;
+                    font-size: 22px;
+                    line-height: 30px;
+                    @include breakpoint(medium) {
+                        font-size: 16px;
+                        line-height: 18px;
+                    }
+                    @include breakpoint(xlarge) {
+                        font-size: 18px;
+                        line-height: 28px;
+                    }
+                    @include breakpoint(xxlarge) {
+                        font-size: 20px;
+                        line-height: 28px;
+                    }
+                    &:before {
+                        display: none;
+                    }
+
+
+
+                    .home & {
+                        @include breakpoint(medium) {
+                            font-size: 16px;
+                            line-height: 18px;
+                        }
+                        @include breakpoint(xlarge) {
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+                        @include breakpoint(xxlarge) {
+                            font-size: 22px;
+                            line-height: 30px;
+                        }
+                    }
+                }
+            }
+
+            a {
+                position: absolute;
+                z-index: 3;
+                color: $white;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                text-transform: uppercase;
+                transition: all 0.2s ease;
+                font-size: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
+            @include breakpoint(xxlarge) {
+                &:hover {
+                    .image-block-content {
+                        bottom: 60px;
+                        .summary {
+                            max-height: 70px;
+                        }
+                    }
+                    .bgOverlay {
+                        height: 150%;
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}

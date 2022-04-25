@@ -1,0 +1,158 @@
+
+// L5: New code , finish later
+// .circular-infographic {
+//     width: 100%;
+//     position: relative;
+//     margin-bottom: 8em !important;
+
+//     &.full-width-component.limit-inner-div-content {
+//         > div {
+//             max-width: 1200px !important;
+//             z-index: 1;
+//             position: relative;
+//             margin: auto;
+//         }
+//     }
+
+//     .circle-container-outer {
+//         position: relative;
+//         .central-image {
+//             position: absolute;
+//             width: 200px;
+//             height: 200px;
+//             left: 50%;
+//             top: 50%;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             transform: translate(-50%, -50%);
+//             background: $darkBlueBackground;
+//             border-radius: 50%;
+//             img {
+//                 width: 60%;
+//             }
+//         }
+//     }
+   
+    
+// }
+
+
+
+.circular-infographic {
+    width: 100%;
+    position: relative;
+    margin-bottom: 8em !important;
+    &.full-width-component.limit-inner-div-content {
+        > div {
+            max-width: 1200px !important;
+            z-index: 1;
+            position: relative;
+            margin: auto;
+        }
+    }
+    .circle-container-outer {
+        position: relative;
+        .central-image {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 50%;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%, -50%);
+            background: $darkBlueBackground;
+            border-radius: 50%;
+            img {
+                width: 60%;
+            }
+        }
+        .circle-container {
+            border: solid 1px $primary;
+            @include breakpoint(medium) {
+                margin: 120px auto 100px;
+                @include on-circle($item-count: 6, $circle-size: 500px, $item-size: 200px); 
+            }
+            @include breakpoint(xlarge) {
+                @include on-circle($item-count: 6, $circle-size: 550px, $item-size: 200px); 
+            }
+            @include breakpoint(xxxlarge) {
+                @include on-circle($item-count: 6, $circle-size: 620px, $item-size: 300px); 
+            }
+            .circular-infographic-item {
+                width: 200px;
+                display: flex;
+                align-items: center;
+                @include breakpoint(medium) {
+                    width: 200px;
+                }
+                @include breakpoint(xxxlarge) {
+                    width: 300px;
+                }
+                .circular-infographic-inner {
+                    border: 2px dotted #ccc;
+                    padding: 10px;
+                    background: $white;
+                    h3 {
+                        color: $pink;
+                        margin-top: 0;
+                        margin-bottom: 5px;
+                    }
+                    p {
+                        margin-bottom: 0;
+                        font-size: 12px;
+                        line-height: 130%;
+                    }
+                }
+            }
+        }
+    }
+
+    // zombie code once again
+    /*.circular-infographic-items {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding-top: 10px;
+        .circular-infographic-item {
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            flex-grow: 1;
+            margin-bottom: 35px;
+            display: block;
+            border: 2px dotted #eee;
+            .circular-infographic-inner {
+                text-align: center;
+                @include breakpoint(medium) {
+                    text-align: left;
+                    padding: 20px 20px 0;
+                }
+                @include breakpoint(xlarge) {
+                    text-align: center;
+                    padding: 0 20px;
+                }
+                h3 {
+                    color: $pink;
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                }
+                p {
+                    margin-bottom: 0;
+                }
+            }
+            &:first-child {
+                .line {
+                    margin-left: 50%;
+                }
+            }
+            &:last-child {
+                .line {
+                    width: 50%;
+                }
+            }
+        }
+    }*/
+}

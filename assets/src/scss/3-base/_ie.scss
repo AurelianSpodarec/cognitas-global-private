@@ -1,0 +1,27 @@
+@supports (-ms-ime-align: auto) {
+    body {
+        overflow-x: hidden;
+    }
+    .header-image-wrapper .header-video-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    body {
+        overflow-x: hidden;
+    }
+    .header-image-wrapper .header-video-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: auto;
+        width: 100%;
+        transform: translate(-50%, -50%);
+    }
+}

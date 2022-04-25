@@ -1,0 +1,205 @@
+@mixin list-unstyled {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+/*@mixin transition($target: all, $duration: 0.25s, $timing: ease) {
+    transition: $target $duration $timing;
+}*/
+
+  
+@mixin box-shadow($params...) {
+    -webkit-box-shadow: $params;
+    -moz-box-shadow: $params;
+    box-shadow: $params;
+}
+
+// Pass in any number of transitions
+@mixin transition($transitions...) {
+  $unfoldedTransitions: ();
+  @each $transition in $transitions {
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+  }
+  
+  -webkit-transition: $unfoldedTransitions;
+  transition: $unfoldedTransitions;
+}
+
+@function unfoldTransition ($transition) {
+  // Default values
+  $property: all;
+  $duration: .2s;
+  $easing: null; // Browser default is ease, which is what we want
+  $delay: null; // Browser default is 0, which is what we want
+  $defaultProperties: ($property, $duration, $easing, $delay);
+
+  // Grab transition properties if they exist
+  $unfoldedTransition: ();
+  @for $i from 1 through length($defaultProperties) {
+    $p: null;
+    @if $i <= length($transition) {
+      $p: nth($transition, $i)
+    } @else {
+      $p: nth($defaultProperties, $i)
+    }
+    $unfoldedTransition: append($unfoldedTransition, $p);
+  }
+
+  @return $unfoldedTransition;
+}
+
+
+@mixin bgcolour-changing() {
+    &.lightgrey {
+        background: $grey;
+    }
+}
+
+
+@mixin colour-changing() {
+    &.blue {
+        color: $secondary;
+    }
+    &.green {
+        color: $secondary;
+    }
+    &.grey {
+        color: $grey;
+    }
+    &.pink {    
+        color: $secondary;
+    }
+    &.purple {
+        color: $secondary;
+    }
+
+    .blue & {
+        color: $secondary;
+    }
+    .green & {
+        color: $secondary;
+    }
+    .grey & {
+        color: $grey;
+    }
+    .pink & {    
+        color: $secondary;
+    }
+    .purple & {
+        color: $secondary;
+    }
+}
+
+
+@mixin navigation-arrows() {
+    .blue & {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='26px' height='18px' viewBox='0 0 26 18' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3c!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch --%3e%3ctitle%3ePath%3c/title%3e%3cdesc%3eCreated with Sketch.%3c/desc%3e%3cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cg id='Content-Page' transform='translate(-296.000000, -1484.000000)' fill='%23004B93'%3e%3cg id='Side-Menu' transform='translate(0.000000, 1317.000000)'%3e%3cg id='arrow-pointing-to-right-copy-13' transform='translate(296.000000, 167.000000)'%3e%3cpath d='M25.6458799,8.13997586 L17.9087201,0.356181562 C17.4366567,-0.118727187 16.6710647,-0.118727187 16.1990012,0.356181562 C15.7268411,0.83118761 15.7268411,1.60119946 16.1990012,2.07620551 L21.8723703,7.78376998 L1.20893121,7.78376998 C0.541311039,7.78376998 0,8.32834369 0,8.99998784 C0,9.67153469 0.541311039,10.2162057 1.20893121,10.2162057 L21.8723703,10.2162057 L16.1991947,15.9237702 C15.7270345,16.3987762 15.7270345,17.1687881 16.1991947,17.6437941 C16.435178,17.8811025 16.7446644,18 17.0540541,18 C17.3634438,18 17.6728335,17.8811025 17.9089135,17.6437941 L25.6458799,9.85999981 C26.11804,9.38499376 26.11804,8.61498191 25.6458799,8.13997586 Z' id='Path'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+    }
+    .green & {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='26px' height='18px' viewBox='0 0 26 18' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3c!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch --%3e%3ctitle%3ePath%3c/title%3e%3cdesc%3eCreated with Sketch.%3c/desc%3e%3cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cg id='Content-Page' transform='translate(-296.000000, -1484.000000)' fill='#{$secondary}'%3e%3cg id='Side-Menu' transform='translate(0.000000, 1317.000000)'%3e%3cg id='arrow-pointing-to-right-copy-13' transform='translate(296.000000, 167.000000)'%3e%3cpath d='M25.6458799,8.13997586 L17.9087201,0.356181562 C17.4366567,-0.118727187 16.6710647,-0.118727187 16.1990012,0.356181562 C15.7268411,0.83118761 15.7268411,1.60119946 16.1990012,2.07620551 L21.8723703,7.78376998 L1.20893121,7.78376998 C0.541311039,7.78376998 0,8.32834369 0,8.99998784 C0,9.67153469 0.541311039,10.2162057 1.20893121,10.2162057 L21.8723703,10.2162057 L16.1991947,15.9237702 C15.7270345,16.3987762 15.7270345,17.1687881 16.1991947,17.6437941 C16.435178,17.8811025 16.7446644,18 17.0540541,18 C17.3634438,18 17.6728335,17.8811025 17.9089135,17.6437941 L25.6458799,9.85999981 C26.11804,9.38499376 26.11804,8.61498191 25.6458799,8.13997586 Z' id='Path'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+    }
+    .grey & {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='26px' height='18px' viewBox='0 0 26 18' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3c!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch --%3e%3ctitle%3ePath%3c/title%3e%3cdesc%3eCreated with Sketch.%3c/desc%3e%3cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cg id='Content-Page' transform='translate(-296.000000, -1484.000000)' fill='#{$grey}'%3e%3cg id='Side-Menu' transform='translate(0.000000, 1317.000000)'%3e%3cg id='arrow-pointing-to-right-copy-13' transform='translate(296.000000, 167.000000)'%3e%3cpath d='M25.6458799,8.13997586 L17.9087201,0.356181562 C17.4366567,-0.118727187 16.6710647,-0.118727187 16.1990012,0.356181562 C15.7268411,0.83118761 15.7268411,1.60119946 16.1990012,2.07620551 L21.8723703,7.78376998 L1.20893121,7.78376998 C0.541311039,7.78376998 0,8.32834369 0,8.99998784 C0,9.67153469 0.541311039,10.2162057 1.20893121,10.2162057 L21.8723703,10.2162057 L16.1991947,15.9237702 C15.7270345,16.3987762 15.7270345,17.1687881 16.1991947,17.6437941 C16.435178,17.8811025 16.7446644,18 17.0540541,18 C17.3634438,18 17.6728335,17.8811025 17.9089135,17.6437941 L25.6458799,9.85999981 C26.11804,9.38499376 26.11804,8.61498191 25.6458799,8.13997586 Z' id='Path'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+    }
+    .pink & {    
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='26px' height='18px' viewBox='0 0 26 18' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3c!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch --%3e%3ctitle%3ePath%3c/title%3e%3cdesc%3eCreated with Sketch.%3c/desc%3e%3cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cg id='Content-Page' transform='translate(-296.000000, -1484.000000)' fill='#{$secondary}'%3e%3cg id='Side-Menu' transform='translate(0.000000, 1317.000000)'%3e%3cg id='arrow-pointing-to-right-copy-13' transform='translate(296.000000, 167.000000)'%3e%3cpath d='M25.6458799,8.13997586 L17.9087201,0.356181562 C17.4366567,-0.118727187 16.6710647,-0.118727187 16.1990012,0.356181562 C15.7268411,0.83118761 15.7268411,1.60119946 16.1990012,2.07620551 L21.8723703,7.78376998 L1.20893121,7.78376998 C0.541311039,7.78376998 0,8.32834369 0,8.99998784 C0,9.67153469 0.541311039,10.2162057 1.20893121,10.2162057 L21.8723703,10.2162057 L16.1991947,15.9237702 C15.7270345,16.3987762 15.7270345,17.1687881 16.1991947,17.6437941 C16.435178,17.8811025 16.7446644,18 17.0540541,18 C17.3634438,18 17.6728335,17.8811025 17.9089135,17.6437941 L25.6458799,9.85999981 C26.11804,9.38499376 26.11804,8.61498191 25.6458799,8.13997586 Z' id='Path'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+    }
+    .purple & {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='26px' height='18px' viewBox='0 0 26 18' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3c!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch --%3e%3ctitle%3ePath%3c/title%3e%3cdesc%3eCreated with Sketch.%3c/desc%3e%3cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3e%3cg id='Content-Page' transform='translate(-296.000000, -1484.000000)' fill='#{$secondary}'%3e%3cg id='Side-Menu' transform='translate(0.000000, 1317.000000)'%3e%3cg id='arrow-pointing-to-right-copy-13' transform='translate(296.000000, 167.000000)'%3e%3cpath d='M25.6458799,8.13997586 L17.9087201,0.356181562 C17.4366567,-0.118727187 16.6710647,-0.118727187 16.1990012,0.356181562 C15.7268411,0.83118761 15.7268411,1.60119946 16.1990012,2.07620551 L21.8723703,7.78376998 L1.20893121,7.78376998 C0.541311039,7.78376998 0,8.32834369 0,8.99998784 C0,9.67153469 0.541311039,10.2162057 1.20893121,10.2162057 L21.8723703,10.2162057 L16.1991947,15.9237702 C15.7270345,16.3987762 15.7270345,17.1687881 16.1991947,17.6437941 C16.435178,17.8811025 16.7446644,18 17.0540541,18 C17.3634438,18 17.6728335,17.8811025 17.9089135,17.6437941 L25.6458799,9.85999981 C26.11804,9.38499376 26.11804,8.61498191 25.6458799,8.13997586 Z' id='Path'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+    }
+    
+}
+
+@mixin grayscale_element($value) {
+    -webkit-filter: #{"grayscale(#{$value})"};
+    -moz-filter: #{"grayscale(#{$value})"};
+    filter:#{"grayscale(#{$value})"};
+}
+
+@mixin backgroundFill {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin maxWidth($screen){
+    @media (max-width: $screen+'px') {
+        @content;
+    }
+}
+
+@mixin centerIt($top:50%,$tTop: -50%, $left: 50%, $tLeft: -50%, $pos: absolute, $threedee: 0) {
+    position: $pos;
+    top: $top;
+    left: $left;
+
+    @if $threedee == 0 {
+      -webkit-transform: translate($tLeft,$tTop);
+      -moz-transform: translate($tLeft,$tTop);
+      -ms-transform: translate($tLeft,$tTop);
+      transform: translate($tLeft,$tTop);
+    } @else {
+      -webkit-transform: translate3d($tLeft,$tTop,0);
+      -moz-transform: translate3d($tLeft,$tTop,0);
+      -ms-transform: translate3d($tLeft,$tTop,0);
+      transform: translate3d($tLeft,$tTop,0);
+    }
+}
+
+@mixin popupClose(){
+    position: absolute; 
+    top: 10px; 
+    right: 10px;
+    background: $blue;
+    width: 26px;
+    height: 26px;
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        transform-origin: center;
+        border-top: 2px solid $white;
+        width: 18px;
+        top: 50%;
+        left: 50%;
+    }
+    &:before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &:after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+@mixin on-circle($item-count, $circle-size, $item-size) {
+    position: relative;
+    width:  $circle-size;
+    height: $circle-size;
+    padding: 0;
+    border-radius: 50%; 
+    list-style: none;       
+    
+    > * {
+      display: block;
+      position: absolute;
+      top:  50%; 
+      left: 50%;
+      width:  $item-size;
+      height: $item-size;
+      margin: -($item-size / 2);
+    
+      $angle: (360 / $item-count);
+      $rot: 0;
+  
+      @for $i from 1 through $item-count {
+        &:nth-of-type(#{$i}) {
+          transform: 
+            rotate($rot * 1deg) 
+            translate($circle-size / 2) 
+            rotate($rot * -1deg);
+        }
+  
+        $rot: $rot + $angle;
+      }
+    }
+}

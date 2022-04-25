@@ -1,0 +1,123 @@
+.download {
+  margin-bottom: 4em;
+
+  &.hide-header {
+    .download-theader {
+      display: none;
+    }
+  }
+
+  &-heading {
+    color: $primary;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-top: 40px;
+  }
+
+  &-item {
+    color: #3D4C50;
+    background: #F1F1F1;
+    font-weight: 400;
+    margin-bottom: 10px;
+    display: flex;
+    transition: all 0.3s ease-out;
+    &:hover {
+      background-color: darken(#F1F1F1,8%);
+
+      &,
+      .download-title,
+      .download-title:focus,
+      .download-link {
+        color: #3D4C50;
+      }
+    }
+  }
+
+  &-theader {
+    width: 100%;
+    padding: 0 0 8px 15px;
+    color: #3D4C50;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    .download-name {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .download-download {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 19%;
+      max-width: 105px;
+      text-align: center;
+      flex-shrink: 0;
+      @include breakpoint(large) {
+        display: flex;
+      }
+    }
+  }
+
+  &-info {
+    width: 100%;
+    padding: 15px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &-extension {
+    font-size: rem(16);
+    font-weight: normal;
+    margin-left: rem(30);
+    padding-left: rem(10);
+    display: none;
+    @include breakpoint(large) {
+      display: block;
+    }
+  }
+
+  &-title {
+    color: #3D4C50;
+    margin-right: rem(2);
+    font-size: 16px;
+    min-width: 190px;
+    @include breakpoint(large) {
+      font-size: 16px;
+    }
+    &:focus {
+      outline: none;
+      color: #3D4C50;
+    }
+  }
+
+  &-link {
+    color: $primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19%;
+    max-width: 70px;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-align: center;
+    flex-shrink: 0;
+    .download-icon {
+      background-image: url(../../assets/src/img/download-icon.png);
+      width: 17px;
+      height: 21px;
+      display: block;
+    }
+
+    &:focus {
+      outline: none;
+      color: $primary;
+    }
+  }
+}

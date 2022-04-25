@@ -1,0 +1,43 @@
+{
+    "key": "group_5da9c7a5527a0",
+    "title": "Component: Video",
+    "fields": [
+        {
+            "key": "field_5da9c7af4f66a",
+            "label": "Video URL",
+            "name": "video_url",
+            "type": "text",
+            "instructions": "Copy and paste the URL where you view the video on the respective website (E.G. https:\/\/www.youtube.com\/watch?v=vR8W7RYBlok or https:\/\/www.vimeo.com\/57623345)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post",
+                "operator": "==",
+                "value": "220"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1575628731
+}

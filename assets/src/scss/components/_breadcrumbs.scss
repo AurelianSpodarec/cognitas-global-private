@@ -1,0 +1,80 @@
+.breadcrumb-row {
+    display: none;
+    @include breakpoint(medium) {
+        display: none;
+        margin-bottom: 2em;
+        margin-left: 0;
+    }
+}
+
+.breadcrumbs {
+    display: none;
+    font-size: 14px;
+    padding: 0;
+    font-weight: 400;
+    color: $black;
+    font-family: $body-alt-font;
+    text-align: left;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    a:hover {
+        text-decoration: underline;
+    }
+
+    span span a {
+        font-size: 12px;
+        color: $black;
+        text-decoration: none;
+
+        .breadcrumb_last {
+            font-size: 12px;
+            color: $black;
+            margin-left: rem(5);
+        }
+
+        .breadcrumb_last {
+
+        }
+
+        span span a {
+            color: $black;
+            margin-left: rem(5);
+            margin-right: rem(5);
+
+            &:hover {
+                color: $black;
+            }
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    span:first-child > a {
+        color: $black;
+        opacity: 0.5;
+        margin-left: 0;
+        padding: 0 5px 0 0;
+    }
+
+    span span {
+        color: $pink;
+    }
+
+    span span span a {
+        font-size: 12px;
+        padding: 0 5px;
+    }
+
+    span span span span {
+        
+        font-size: 12px;   
+        color: $pink;
+    }
+
+    span.breadcrumb_last {
+        font-size: 12px;
+        color: $black;
+        padding: 0 5px;
+    }
+}

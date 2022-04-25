@@ -1,0 +1,40 @@
+.signposting-image {
+    width: 100%;
+    &-background {
+        position: relative;
+        .signposting-image-title {
+            color: $white;
+            box-sizing: border-box;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+            padding: 0 30px;
+            margin: 0;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(214.65deg, rgba(1, 1, 59, 0.69) 10.59%, rgba(0, 0, 0, 0) 100%);
+            @include breakpoint(xlarge) {
+                background: linear-gradient(214.65deg, rgba(1, 1, 59, 0.69) 10.59%, rgba(0, 0, 0, 0) 65.95%);
+            }
+        }
+        a {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+}

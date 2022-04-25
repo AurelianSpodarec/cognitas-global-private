@@ -1,0 +1,83 @@
+.text-over-image {
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 93%);
+    margin-bottom: 3em;
+    background: $darkBlueBackground;
+    position: relative;
+    &.no-image-assigned {
+        &:after {
+            content: '';
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: auto 100%;
+            background-image: url(../../assets/src/img/testimonial-bg.png);
+        }
+    }
+    &-background {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        min-height: 80vw;
+        padding: 5vw 10vw;
+        box-sizing: border-box;
+        @include breakpoint(medium) {
+            min-height: 310px;
+        }
+        &.hide-blue-bg {
+            &:before {
+                display: none;
+            }
+        }
+        &.text-left {
+            justify-content: flex-start;
+            h2 {
+                text-align: left;
+            }
+            &:before {
+                background: linear-gradient(100deg, rgba(1, 1, 59, 0.69) 11.4%, rgba(0, 0, 0, 0) 100%);
+                @include breakpoint(xlarge) {
+                    background: linear-gradient(100deg, rgba(1, 1, 59, 0.69) 11.4%, rgba(0, 0, 0, 0) 47.99%);
+                }
+            }
+        }
+        &.text-center {
+            justify-content: center;
+            h2 {
+                text-align: center;
+            }
+            &:before {
+                background: linear-gradient(100deg, rgba(0, 0, 0, 0) 0%, rgba(1, 1, 59, 0.5) 35%, rgba(1, 1, 59, 0.5) 65%, rgba(0,0,0,0) 100%);
+                @include breakpoint(xlarge) {
+                    background: linear-gradient(100deg, rgba(0, 0, 0, 0) 0%, rgba(1, 1, 59, 0.5) 35%, rgba(1, 1, 59, 0.5) 65%, rgba(0,0,0,0) 100%);
+                }
+            }
+        }
+        &:before {
+            content: '';
+            background: linear-gradient(260deg, rgba(1, 1, 59, 0.69) 11.4%, rgba(0, 0, 0, 0) 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            @include breakpoint(xlarge) {
+                background: linear-gradient(260deg, rgba(1, 1, 59, 0.69) 11.4%, rgba(0, 0, 0, 0) 47.99%);
+            }
+        }
+        .text-over-image-title {
+            color: $white;
+            max-width: 500px;
+            text-align: right;
+            z-index: 1;
+        }
+    }
+}

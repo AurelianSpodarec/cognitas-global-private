@@ -1,0 +1,129 @@
+.disc-infographic {
+    width: 100%;
+    position: relative;
+    &.full-width-component.limit-inner-div-content {
+        > div {
+            max-width: 1200px !important;
+            z-index: 1;
+            position: relative;
+            margin: auto;
+        }
+    }
+    .disc-infographic-items {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        width: 100%;
+        padding-top: 10px;
+        @include breakpoint(medium) {
+            width: 75%;
+            margin: 0 auto;
+        }
+        @include breakpoint(xlarge) {
+            padding-top: 30px;
+            flex-direction: row;
+            flex: 1 1 0px;
+            margin: auto;
+            width: 100%;
+        }
+        .disc-infographic-item {
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            flex-grow: 1;
+            margin-bottom: 35px;
+            display: block;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            @include breakpoint(medium) {
+                display: flex;
+                margin-bottom: 20px;
+            }
+            @include breakpoint(xlarge) {
+                display: block;
+                margin-bottom: 0;
+            }
+            .disc-image {
+                margin: 0 auto;
+                display: block;
+                transform: translateX(8%);
+                @include breakpoint(medium) {
+                    margin: 0;
+                    transform: none;
+                }
+                @include breakpoint(xlarge) {
+                    transform: translateX(8%);
+                    margin: 0 auto 20px;
+                }
+            }
+            .line {
+                width: 100%;
+                height: 2px;
+                background: $primary;
+                display: none;
+                @include breakpoint(xlarge) {
+                    display: block;
+                }
+            }
+            .disc {
+                transform: translate(-50%, -50%);
+                position: relative;
+                top: 0;
+                left: 50%;
+                width: 24px;
+                height: 24px;
+                background: $white;
+                border-radius: 50%;
+                border: 2px solid $primary;
+                display: none;
+                @include breakpoint(xlarge) {
+                    display: block;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    display: block;
+                    background: $primary;
+                }
+            }
+            .disc-infographic-inner {
+                text-align: center;
+                @include breakpoint(medium) {
+                    text-align: left;
+                    padding: 20px 20px 0;
+                }
+                @include breakpoint(xlarge) {
+                    text-align: center;
+                    padding: 0 20px;
+                }
+                &__title {
+                    color: $pink;
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                    font-size: 18px;
+                }
+                &__desc {
+                    margin-bottom: 0;
+                    font-size: 15px;
+                }
+            }
+            &:first-child {
+                .line {
+                    margin-left: 50%;
+                }
+            }
+            &:last-child {
+                .line {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

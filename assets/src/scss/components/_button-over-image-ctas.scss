@@ -1,0 +1,45 @@
+.button-over-image-ctas {
+    width: 100%;
+    margin-bottom: 3em;
+    @include breakpoint(medium) {
+        clip-path: polygon(0 7%, 100% 0, 100% 100%, 0 100%);
+    }
+    &-container {
+        @include breakpoint(medium) {
+            display: flex;
+        }
+    }
+    .button-over-image-ctas-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        min-height: 80vw;
+        padding: 5vw 10vw;
+        box-sizing: border-box;
+        @include breakpoint(medium) {
+            min-height: 32vw;
+        }
+        .button-over-image-ctas-title {
+            color: $white;
+            max-width: 356px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .button-over-image-ctas-button-holder {
+            .button {
+                
+            }
+        }
+        &:nth-child(2n) {
+            margin-top: 6px;
+            @include breakpoint(medium) {
+                margin-left: 6px;
+                margin-top: 0;
+            }
+        }
+    }
+}

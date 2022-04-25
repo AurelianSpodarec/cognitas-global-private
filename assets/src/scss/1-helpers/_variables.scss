@@ -1,0 +1,72 @@
+//mixins
+
+
+// @font-face {
+//     font-family: 'Vista La Diva Regular';
+//     font-style: normal;
+//     font-weight: normal;
+//     src: local('../../build/fonts/Vista-La-Diva.woff'), url('../../build/fonts/Vista-La-Diva.woff') format('woff');
+// }
+
+//colours
+$text-colour-old: #353535;
+$text-colour: #000;
+
+$white: #fff;
+$black: #000000;
+
+$purple: #563789;
+$purpleDark: #39225F;
+$purpleLight: #8973ac;
+
+$yellow: #FFED00;
+$dark-yellow: #D9CB17;
+$blue: #00B4FF;
+$dark-grey: #484646;
+$darker-grey: #252525;
+
+$orange: #DF5D00;
+$orangeLight: #FF6600;
+$orangeDark: #DF5D00;
+
+$blueLight: #193f7a;
+$blueDark: #2c5594;
+$red: #A20F00;
+$redLight: #bf1706;
+$redDark: #770c01;
+$pink: #FF0089;
+
+$darkBlueBackground: #030134;
+
+$footer-text-colour: #a0a0a0;
+
+$primary: $blue;
+$secondary: $pink;
+$tertiary: $dark-grey;
+
+$grey: $dark-grey;
+
+$navHover: #123262;
+
+// fonts
+$body-font: 'Open Sans', sans-serif;
+$heading-font: 'Montserrat', sans-serif;
+$body-alt-font: 'Montserrat', sans-serif;
+$fancy-heading-font: 'Montserrat', sans-serif;
+
+$default-font-size: 16px;
+$default-line-height: 1.6em;
+
+$default-shadow : 0px 0px 30px 0px rgba(0,0,0,0.18);
+
+$homeAnimation: #121212;
+$light-gray: #f5f4f6;
+$seperator-line-gray: #f5f4f6;
+$medium-gray: #cacaca;
+$dark-gray: #3d4c50;
+$body-background: $white;
+$body-font-color: $black;
+$body-font-family: 'Gill Sans W01', serif;
+$body-antialiased: true;
+
+$main-nav-width: 100%;

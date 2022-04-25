@@ -1,0 +1,42 @@
+.sitemap {
+  padding-top: rem(30);
+  position: relative;
+  z-index: 3;
+
+  &-list {
+    list-style-type: none;
+    margin-left: 0 !important;
+    > li {
+      &:before {
+        display: none !important;
+      }
+      > a {
+        display: inline-block;
+        font-size: rem(18);
+        margin-bottom: rem(10);
+      }
+      button {
+        display: none;
+      }
+    }
+
+    ul {
+      margin: 0 0 0 20px;
+
+      > li {
+        margin-bottom: 0;
+        padding: 3px 0;
+        &:before {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  &-wrapper {
+    flex: 0 1 100%;
+    max-width: 100%;
+    padding: rem(0 0 40 0);
+    color: #4c4c4c;
+  }
+}

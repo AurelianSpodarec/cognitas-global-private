@@ -1,0 +1,200 @@
+
+.numbered-timeline {
+    width: 100%;
+    position: relative;
+    margin-bottom: 5em !important;
+
+
+  
+
+    &.full-width-component.limit-inner-div-content {
+        > div {
+            max-width: 1000px !important;
+            z-index: 1;
+            position: relative;
+            margin: auto;
+        }
+        &.horizontal-container {
+            > div {
+                max-width: 1400px !important;
+            }
+        }
+    }
+    .component-title-wrapper {
+        margin-bottom: 40px;
+    }
+    .numbered-timeline-items {
+        display: flex;
+        flex-direction: column;
+        padding-left: 30px;
+        box-sizing: border-box;
+        width: 100%;
+        .numbered-timeline-item {
+            padding-left: 40px;
+            padding-bottom: 30px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            &:last-child {
+                .line {
+                    display: none;
+                }
+            }
+            &.staggered.active {
+                .line {
+                    height: 100%;
+                }
+                .number {
+                    opacity: 1;
+                }
+            }
+            @include breakpoint(xxlarge) {
+                padding-right: calc(50% + 40px);
+                padding-left: 0;
+                text-align: right;
+                &:nth-child(even) {
+                    text-align: left;
+                    padding-left: calc(50% + 40px);
+                    padding-right: 0;
+                }
+                .line {
+                    left: 50% !important;
+                }
+                .number {
+                    left: 50% !important;
+                }
+            }
+            .line {
+                position: absolute;
+                left: 0;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 0;
+                background: $primary;
+                transition: all 0.75s linear 0.3s !important;
+            }
+            .line2 {
+                display: none;
+            }
+            .number {
+                transform: translateX(-50%);
+                position: absolute;
+                left: 0;
+                width: 40px;
+                height: 40px;
+                color: $white;
+                background: $primary;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: all 0.1s ease-out 0.3s !important;
+            }
+            .numbered-timeline-inner {
+                padding-top: 6px;
+                h3 {
+                    color: $pink;
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                }
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        @include breakpoint(xxlarge) {
+            &.horizontal-style {
+                flex: 1 1 0px;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                padding-top: 205px;
+                padding-left: 0;
+                .numbered-timeline-item {
+                    padding-right: 0;
+                    text-align: left;
+                    padding-bottom: 0;
+                    &:nth-child(odd) {
+                        .numbered-timeline-inner {
+                            padding-top: 0;    
+                            padding-bottom: 25px;
+                            transform: translate(35px, -100%);
+                        }
+                        .line {
+                            top: -100%;
+                        }
+                        .number {
+                            top: -100%;
+                        }
+                    }
+                    &:nth-child(even) {
+                        padding-left: 0;
+                        .numbered-timeline-inner {
+                            position: static;
+                            transform: translateX(35px);
+                        }
+                        .number {
+                            bottom: 0;
+                        }
+                    }
+                    &:nth-child(3n) {
+                        .numbered-timeline-inner {
+                            margin-left: calc(-10% - 35px);
+                        }
+                        .line {
+                            display: block;
+                            left: calc(-10% - 35px) !important;
+                        }
+                        .number {
+                            left: calc(-10% - 35px) !important;
+                        }
+                    }
+                    &:last-child {
+                        .numbered-timeline-inner {
+                            margin-left: calc(-30% - 35px);
+                        }
+                        .line {
+                            display: block;
+                            left: calc(-30% - 35px) !important;
+                        }
+                        .number {
+                            left: calc(-30% - 35px) !important;
+                        }
+                    }
+                    .line {
+                        left: 0 !important;
+                    }
+                    .number {
+                        left: 0 !important;
+                    }
+                    .line2 {
+                        display: block;
+                        height: 2px !important;
+                        width: 100%;
+                        transform: translateY(-50%);
+                        position: absolute;
+                        left: 0;
+                        background: $primary;
+                        transition: all 0.75s linear 0.3s !important;
+                    }
+                    .numbered-timeline-inner {
+                        padding-top: 30px;
+                        padding-right: 20px;
+                        width: 130%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.l5-timeline {
+    &__title {
+        font-size: 17px;
+        font-weight: bold;
+    }
+    &__desc{
+        font-size: 15px;
+    }
+
+}

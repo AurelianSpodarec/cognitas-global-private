@@ -1,0 +1,158 @@
+.meet-the-team {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    .component-title-wrapper .component-title {
+        margin-bottom: 30px;
+    }
+	&-items {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+		.meet-the-team-item {
+            margin: 0 20px 30px;
+            width: 100%;
+            cursor: pointer;
+            @include breakpoint(medium) {
+                margin: 0 5px 30px;
+                width: calc(25% - 10px);
+            }
+            @include breakpoint(xxlarge) {
+                margin: 0 15px 30px;
+                width: calc(25% - 30px);
+            }
+            @include breakpoint(xxxlarge) {
+                margin: 0 20px 30px;
+                width: calc(25% - 40px);
+            }
+            .meet-the-team {
+                transition: all .35s ease-in-out;
+            }  
+            // opacity: 0.5;
+            &.active-member {
+
+                // & .meet-the-team-item:not(.active-member) {
+                //     opacity: 1;
+                // }   
+
+                .meet-the-team-bg {
+                    width: 85%;
+                    padding-bottom: 79%;
+                    border-radius: 50%;
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 50%;
+                    border: 5px solid #00d0ff;
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    margin: 0 auto;
+                }
+                
+                .meet-the-team-inner {
+                    .content {
+                        .name {
+                            color: $primary;
+                            font-weight: 400;
+                        }
+                    }
+
+                    
+                }
+                           
+            }
+            .meet-the-team-bg {
+                width: 85%;
+                padding-bottom: 79%;
+                border-radius: 50%;
+                background-size: cover;
+                background-position: center;
+                border-radius: 50%;
+                border: 5px solid $primary;
+                overflow: hidden;
+                box-sizing: border-box;
+                margin: 0 auto;
+            }
+            .meet-the-team-inner {
+                position: relative;
+                margin-top: 20px;
+                .content {
+                    text-align: center;
+                    width: 100%;
+                    padding: 0 10%;
+                    box-sizing: border-box;
+                    .name {
+                        color: $black;
+                    }
+                    .title {
+                        color: $primary;
+                    }
+                    .expand-details {
+                        color: #888;
+                        font-size: 14px;
+                        cursor: pointer;
+                        display: inline;
+                        @include breakpoint(xxlarge) {
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+                .meet-the-team-text {
+                    max-height: 0;
+                    overflow: hidden;
+                    margin-top: 20px;
+                    text-align: center;
+                    transition: max-height 0.3s ease-out;
+                    &.active {
+                        max-height: 500px;
+                    }
+                }
+            }
+        }
+        .meet-the-team-details {
+            position: relative;
+            width: 100%;
+            @include breakpoint(medium) {
+                width: 80%;
+                margin: 0 auto;
+            }
+            @include breakpoint(xlarge) {
+                width: 70%;
+            }
+            @include breakpoint(xxlarge) {
+                width: 65%;
+            }
+            .meet-the-team-text {
+                text-align: center;
+                position: relative;
+                width: 100%;
+                display: none;
+                @include breakpoint(medium) {
+                    width: 80%;
+                    margin: 20px auto 30px;
+                }
+                &.active {
+                    display: block;
+                }
+                .name {
+                    margin-top: 10px;
+                    color: $black;
+                    font-weight: 400;
+                }
+                .title {
+                    color: $primary;
+                    margin-bottom: 20px;
+                }
+                p {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.error404 {
+  section.error-message {
+    width: 100%;
+    text-align: center;
+    padding: 60px 0 100px;
+    h1 {
+    	color: $tertiary;
+    	width: 100%;
+    	&:after {
+    		display: none;
+    	}
+    }
+  }
+}

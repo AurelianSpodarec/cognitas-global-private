@@ -1,0 +1,94 @@
+.header-image-wrapper {
+    &.home-header-image-wrapper {
+        z-index: 1;
+        height: 180vw;
+        min-height: initial;
+        @include breakpoint(large) {
+            height: 50vw;
+            min-height: initial;
+        }
+        @include breakpoint(xlarge) {
+            height: 37.1vw;
+            min-height: initial;
+        }
+
+        #header-animation {
+            background-color:rgba(255,255,255,0);
+            width:100%;
+            height:auto;
+            display:block;
+            overflow: hidden;
+            transform: translate3d(0,0,0);
+            text-align: center;
+            opacity: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            svg {
+                height: 200vw !important;
+                width: auto !important;
+                @include breakpoint(large) {
+                    max-height: 994px !important;
+                    height: 70vw !important;
+                }
+                @include breakpoint(xlarge) {
+                    height: auto !important;
+                    width: 100% !important;
+                    max-height: 994px !important;
+                }
+            }
+            
+        }
+
+        
+        /*&:after {
+            content: '';
+            height: 110%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: auto 100%;
+            background-image: url(../../assets/src/img/header-blue-dots.png);
+            @include breakpoint(medium) {
+                height: 140%;
+            }
+        }*/
+        .header-imagebackground {
+            overflow: visible;
+            background: none;
+            /*background: $darkBlueBackground;*/
+            clip-path: none;
+            /*&:before {
+                content: '';
+                height: 102%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: auto 100%;
+                background-image: url(../../assets/src/img/header-pink-dots.png);
+                transform: rotate(-1deg);
+            }*/
+            /*&:after {
+                content: '';
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-repeat: no-repeat;
+                background-position: bottom left;
+                background-size: auto 100%;
+                background-image: url(../../assets/src/img/header-blue-dots-bg.png);
+            }*/
+            &:after {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,229 @@
+// ==========================================================================
+// #Level 5: Footer
+// ==========================================================================
+
+.l5-footer {
+    box-sizing: border-box;
+    background: $darkBlueBackground;
+    color: white!important;
+    border-top: 3px solid #fe0189;
+
+    & ul { // Used to select WP dynamically created styles - generaly speaking, its bad practice to do this to every element
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__logo-img {
+        max-width: 220px;
+    }
+
+    & ul li {
+        display: inline-block;
+    }
+
+    & a {
+        color: white;
+    }
+
+    &__icon {
+        color: #fe0189;
+        margin-right: 8px;
+        font-size: 14px;
+    }
+
+    // Section: Content
+    //=============================================
+    &__content {
+
+        @include l5-media-query(xlarge) {
+            display: flex; 
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+    }
+
+    &__find-us {
+        display: flex;
+        align-items: baseline;
+    }
+
+    &__content-company {
+        margin-bottom: 30px;
+        @include l5-media-query(xlarge) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__content-company-header {
+
+    }
+
+    &__content-company-title {
+
+    }
+
+    &__content-company-desc {
+        max-width: 500px;
+        font-size: 15px;
+        margin-bottom: 10px;
+        color: white;
+    }
+
+
+    &__contact-title {
+        font-weight: 500;
+    }
+
+    &__contact-info {
+        font-size: 15px;
+    }
+
+    &__main-inner {
+        padding: 50px 0;
+    }
+
+    &__links-wrap {
+        @include l5-media-query(xlarge) {
+            display: flex;
+            align-items: baseline;
+            flex-direction: row;
+        }
+    }
+
+    &__links-header {
+        margin: 0;
+        font-size: 16px;
+        color: #fe0189;
+        // font-weight: bold;
+        text-transform: uppercase;
+        @include l5-media-query(xlarge) {
+            margin: 0 0 10px 0;
+        }
+    }
+
+    &__links-col {
+        margin-bottom: 15px;
+        @include l5-media-query(xlarge) {
+            margin-left: 50px;
+            margin-bottom: 0;
+        }
+
+        & ul a{
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+
+    // Social
+    ////////////////
+    &__social {
+       display: flex;
+       align-items: flex-end;
+    }
+
+    &__social-title {
+        color: white;
+    }
+
+    &__social-items {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    &__social-items-link {
+        display: inline-block;
+        transition: all .13s ease-in-out;
+        border-radius: 50%;
+        border: 2px solid #fe0189;
+        height: 40px;
+        width: 40px;
+        margin-left: 10px;
+
+        &:hover {
+            color: white;
+            background: #fe0189;
+           
+        }
+    }
+
+    &__social-items-icon {
+        display: inline-block;
+         display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 40px;
+    }
+
+
+    
+
+    // Section: Copyright
+    //=============================================
+
+    &__copyright {
+        background: white;
+
+        & p,
+        & a { // Shouldn't do this, but unfortunatelly someone set global styling for these elements..
+            font-size: 14px;
+            color: black;
+        }
+
+        @include l5-media-query(xlarge) {
+            display: flex; 
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__copyright-inner {
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    &__copyright-content {
+        width: 100%;
+        text-align: center;
+
+        @include l5-media-query(xlarge) {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__copyright-text {
+        color: black;
+        margin: 0;
+    }
+
+    &__accreditation {
+        display: block;
+    }
+
+    &__accreditation-ul {
+        display: inline-block;
+        height: 30px;
+    }
+
+    .l5-footer__accreditation__li {
+        display: inline-block;
+        width: 50px; 
+    }
+
+    &__accreditation-items {
+        // width: 100px; 
+        // display: inline-block;
+    }
+
+
+}

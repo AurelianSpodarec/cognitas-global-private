@@ -1,0 +1,101 @@
+.textContent {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 4em;
+  @include breakpoint(xxlarge) {
+    flex-wrap: nowrap;
+  }
+  .textContent-wrapper {
+    flex-grow: 1;
+  }
+  .table-flex {
+    display: flex;
+    flex-wrap: wrap;
+    .column {
+      width: 100%;
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+    }
+  }
+  .textContent-rightside {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 30px;
+    display: none;
+    @include breakpoint(medium) {
+      margin-top: 50px;
+    }
+    @include breakpoint(xxlarge) {
+      width: 240px;
+      flex-shrink: 0;
+      margin-left: 5vw;
+    }
+    .donateLink {
+      width: 100%;
+      background: $secondary;
+      display: block;
+      color: $black;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 18px 0;
+      transition: all 0.3s ease-out;
+      &:hover {
+        background-color: #bfac86;
+        color: #e6e6e6;
+      }
+    }
+    .infographic-container {
+      border-top: 2px solid #a0b9af;
+      border-bottom: 8px solid #a0b9af;
+      padding: 15px 0 16px;
+      margin-top: 50px;
+      text-align: center;
+      .image {
+        max-width: 100%;
+        height: 139px;
+        margin-top: 10px;
+        background-color: #eee;
+      }
+      .text {
+        margin-top: 15px;
+        font-weight: 700;
+        font-size: 18px;
+        color: #373737;
+        line-height: 22px;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .content-typography {
+    width: 100%;
+    .post-template-default & {
+      padding-top: 0;
+    }
+    @include breakpoint(medium) {
+      width: auto;
+    }
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.main-components > .textContent:first-of-type .textContent-wrapper .content-typography {
+  /*> p:first-of-type {
+    font-size: 20px;
+    line-height: 30px;
+    @include breakpoint(medium) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }*/
+}
+.main-components .textContent:first-of-type .textContent-rightside {
+  display: block;
+}

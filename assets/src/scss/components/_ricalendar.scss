@@ -1,0 +1,515 @@
+//Ricalendar variables
+$loader: $red;                              //The colour of the spinning loader
+$loader_bg: transparent;                    //The background of the loader overlay
+
+//Mini Calendar colours
+$filter_bg: #E5E5E5;                      //The background of the filter bar
+$filter_text_colour: $red;                  //The text colour of the label of the filter
+$arrow_rgb: rgba($filter_text_colour,1);    //Inherit colour of the text and convert to rgba for svg background
+$cal_nav_colour: $white;                    //Text colour of the calendar navigation
+$cal_nav_bg_colour: $red;                   //Background colour of the calendar navigation
+$cal_head_colour: $grey;                    //Text colour of the calendar header
+$cal_head_bg: $white;                       //Background colour of the calendar header
+$cal_date_colour: #8E8E8E;                //Text colour of the numbers (the dates)
+$cal_date_bg: $white;                       //Background colour of the date cells
+$cal_today_ring: $red;                      //Colour of the ring that indicates 'today'. Also affects the colour of the day number in the monthly view calendar
+$cal_has_event: $red;                       //Colour of date when it has an event
+$cal_has_event_selected_colour: $white;     //Text colour when date with an event is selected
+$cal_has_event_selected_bg: $red;           //Background colour when date with an event is selected
+
+//List View Pane
+$list_header_bg: transparent;               //The background colour of the title and filter bar
+$list_header_title_colour: $white;          //The text colour of the title in the header bar
+$filter_colour: rgba($white,0.5);           //The text colour of the view filter
+$filter_current_colour: $white;             //The text colour of the currently selected view filter
+$list_view_table_bg: white;               //The background colour of the containing table
+$list_item_bg: white;                     //The background colour of the list item
+$day_container_left_border: $red;           //Left border colour of each day tab
+$day_tab_colour: #8e8e8e;                 //Text colour of the tab (applies to the filter category)
+$day_tab_time_colour: $red;                 //Text colour of the event time
+$day_tab_title_colour: #04103B;           //Text colour of the event title        
+
+//Week View
+$week_view_date_title: white;             //The text colour of the week view day titles
+$week_view_date_title_bg: transparent;      //Background colour of the week view day titles
+
+//Month View
+$month_view_bg: white;                    //The background colour of the calendar grid view table
+$month_view_border: #E5E5E5;              //The border colour of the calendar grid view cells
+$month_view_date_colour: #999;            //The colour of the day numbers in the calendar grid view cells
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+@keyframes rotateIt {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.calendar_container {
+    background-size: cover;
+    background-position: center;
+    padding: 13em 10em 4em;
+    margin: 4rem 0;
+    @include maxWidth(1400){
+        padding: 10em 5em 5em;
+    }
+    @include maxWidth(1200){
+        padding: 10em 1em 5em;
+    }
+}
+
+.ricalendar {
+    position: relative;
+    z-index:500;
+    min-height: 300px;
+
+    .loader {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: $loader_bg;
+        z-index: 2000;
+        
+        &:after {
+            content:"";
+            animation: rotateIt 1s linear 0s infinite;
+            @include centerIt;
+            margin-left: -40px;
+            margin-top: -40px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border-top: 3px solid $loader;
+            border-right: 3px solid $loader;
+            border-bottom: 3px solid $loader;
+        }
+    }
+
+    .ricalendar-calendar {
+        margin-left: -0.5rem;
+        @include maxWidth(1023){
+            margin: 0 0 1rem;
+        }
+        //Category Filter
+        .calendar_categories_container {
+            background: $filter_bg;
+            text-align: center;
+            margin: 0;
+            padding: 1em;
+            select.calendar_categories {
+                -webkit-appearance: none;
+                background-color: transparent;
+                cursor: pointer;
+                border: 0px;
+                text-align-last: center;
+                text-align: center;
+                text-transform: uppercase;
+                background-image: url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L11 0L5.5 7Z' fill='#{$arrow_rgb}'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: 100% 80%;
+                padding: 0 15px;
+                min-width: 180px;
+                color: $filter_text_colour;
+                &::-ms-expand {
+                    display: none;
+                }
+                option {
+                    color: #333;
+                }
+            }
+        }
+
+
+        //Monthly Navigation
+        .calendar_scroll {
+            background: $cal_nav_bg_colour;
+            color: $cal_nav_colour;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 23px;
+            margin: 0;
+            padding: 1em 2em;
+            text-transform: uppercase;
+            
+            .next_month {
+                display: inline-block;
+                padding-left: 20px;
+            }
+            .previous_month:before, .next_month:before {
+                color: $cal_nav_colour;
+                font-size: 20px;
+                line-height: 35px;
+                cursor: pointer;
+            }
+            .previous_month {
+                display: inline-block;
+                padding-right: 20px;
+                &.disabled:before {
+                    color: rgba($cal_nav_colour, 0.5);
+                    cursor: default;
+                }
+            }
+        }
+
+        //Calendar
+        .ricalendar_table_container {
+            padding: 1.72rem 2vw;
+            background: $cal_date_bg;
+            box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.5);
+        }
+        table {
+            margin: 0 auto;
+            width: 100%;
+            border-collapse: collapse;
+            max-width: 480px;
+            height: 338px;
+
+            @include maxWidth(767){
+                margin-bottom: 0;
+            }
+            th {
+                padding: 0 0 1em;
+                width: 14.28571%;
+                color: $cal_head_colour;
+                font-size: 14px; 
+                text-align: center; 
+                background: $cal_head_bg;
+                border:0px;
+            }
+            td {
+                padding: 0;
+                width: 14.28571%;
+                color: $cal_date_colour;
+                font-size: 14px; 
+                text-align: center; 
+                background: $cal_date_bg;
+                border:0px; 
+                vertical-align: middle; 
+                cursor: pointer;
+                position: relative;
+
+                span {
+                    display: block;
+                    height: 32px;
+                    line-height: 32px;
+                    width: 32px;
+                    text-align: center;
+                    margin: 5px auto;
+                    position: relative;
+                    z-index: 1;
+                    border-radius: 50%;
+                    &.today {
+                        line-height: 30px;
+                        border: 2px solid $cal_today_ring;
+                    }
+                }
+                &:before {
+                    border-radius: 50%;
+                    content:"";
+                    @include centerIt;
+                    width: 0%;
+                    height: 0%;
+                    display: block;
+                    margin: auto;
+                    transition: all 0.33s cubic-bezier(0.390, 0.615, 0.350, 1.405);
+                }
+                
+                &.has_item {
+                    color: $cal_has_event;
+                    font-weight: 700;
+                    &.selected{
+                        color: $cal_has_event_selected_colour;
+                        &:before {
+                            height: 32px;
+                            width: 32px;
+                            background: $cal_has_event_selected_bg;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Self Explanitory (Calendar list view)
+    .ricalendar-list {
+        
+        @include maxWidth(767){
+            margin-left: 0px;
+        }
+	    .list_header {
+            background: $list_header_bg;
+            display: flex;
+            //padding: 2em;
+            justify-content: space-between;
+            align-items: center;
+       
+            
+		    h2 {
+                color: $list_header_title_colour;
+                font-size: 28px;
+                line-height: 38px;
+                font-weight: 700;
+                padding:0;
+                margin: 0;
+
+                position: absolute;
+                bottom: 100%;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                padding-bottom: 4rem;
+                &:before, &:after {
+                    content: '';
+                    background-image: url(../../assets/src/img/title-left.png);
+                    background-repeat: no-repeat;
+                    width: 70px;
+                    height: 30px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    padding-right: 2rem;
+                }
+                &:after {
+                    padding: 0 0 0 2rem;
+                    transform: scale(-1);
+                }
+            }
+		    ul.filter {
+                display: flex;
+                padding:0;
+                margin: 0;
+                font-weight: 400;
+                align-items: center;
+                position: absolute;
+                bottom: 100%;
+                right: 1rem;
+                padding-bottom: 1rem;
+                @include maxWidth(767){
+                    position: static;
+                    width: 100%;
+                    justify-content: center;
+                }
+                li {
+                    cursor: pointer;
+                    padding:0;
+                    margin: 0 0 0 1em;
+                    line-height: 35px;
+                    list-style: none;
+                    font-size: 20px;
+                    color: $filter_colour;
+
+                    @include maxWidth(767){
+                        margin: 1em 1em 0 0;
+                        &[data-view="month"]{
+                            display: none;
+                        }
+                    }
+                    &.current {
+                        color: $filter_current_colour;
+                    }
+                }
+            }
+        }
+
+        
+        .day_view, .week_view, .range_view {
+            box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.5);
+            height: 32.8rem;
+            overflow: auto;
+            margin-bottom: 3em;
+            -webkit-overflow-scrolling: touch;
+            
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #CCC;
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-thumb:hover {
+                background: #AAA; 
+            }
+            h3 {
+                margin: 0;
+                background: $week_view_date_title_bg;
+                color: $week_view_date_title;
+                font-size: 1.25rem;
+                font-weight: 400;
+                -webkit-font-smoothing: antialiased;
+                padding: 0 0 0.22em;
+            }
+            .event_row {
+                background: $list_item_bg;
+                padding: 1rem;
+                border-left: 1rem solid $day_container_left_border;
+                color: $day_tab_colour;
+                font-size: 0.9rem;
+                line-height: 140%;
+                font-weight: 400;
+                -webkit-font-smoothing: antialiased;
+                margin-bottom: 1rem;
+                position: relative;
+                form {
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    .downloadButton {
+                        background: $red;
+                        color: white;
+                        border: 0px;
+                        padding: 0.5em 1em;
+                    }
+                    & + strong {
+                        padding-right: 9em;
+                    }
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                a {
+                    @include centerIt;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 100;
+                    transition: all 0.15s;
+                    
+                    @media(hover:hover) {
+                        &:hover {
+                            background: rgba(255, 60, 55, 0.2);
+                        }
+                    }
+                }
+                
+                span {
+                    display: block;
+                    color: $day_tab_time_colour;
+                    &.link_title {
+                        float: right;
+                    }
+                }
+                strong {
+                    font-weight: inherit;
+                    color: $day_tab_title_colour;
+                    display: block;
+                    font-size: 120%;
+                }
+            }
+        }
+
+        .month_view {
+            padding-top: 0;
+            height: 32.75rem;
+            table {
+                height: 100%;
+                border-collapse: collapse;
+                background: $month_view_bg;
+                width: 100%;
+                thead {
+                    position: static;
+                    display: table-header-group;
+                }
+                th {
+                    border-left: 1px solid $month_view_border;
+                    border-bottom: 1px solid $month_view_border;
+                    padding: 1em 0 0;
+                    width: 14.28571%;
+                    color: $grey;
+                    font-size: 12px; 
+                    text-align: center;
+                }
+                
+                td {
+                    text-align: left;
+                    vertical-align: text-top;
+                    padding: 0;
+                    border-left: 1px solid $month_view_border;
+                    border-bottom: 1px solid $month_view_border;
+                    width: 14.28%;
+                    word-break: break-word;
+                    & > div > span {
+                        font-size: 10px;
+                        line-height: 10px;
+                        color: $month_view_date_colour;
+                        &.today {
+                            color: $cal_today_ring;
+                            font-weight: 700;
+                        }
+                    }
+                    p {
+                        line-height: 100%;
+                        margin: 0 0 0.5em;
+                        font-size: 16px;
+                        -webkit-font-smoothing: antialiased;
+                        font-weight: 400;
+                        span {
+                            color: $day_tab_time_colour;
+                            font-size: 12px;
+                            display: block;
+                        }
+                        strong {
+                            font-size: 14px;
+                            display: block;
+                            font-weight: inherit;
+                            color: $day_tab_title_colour;
+                        }
+                    }
+
+                    &.has_item {
+                        background: $white;
+                        border-left: 5px solid $day_container_left_border;
+                    }
+                    &[data-date] {
+                        padding: 0 5px;
+                        div {
+                            overflow: auto;
+                            height: 100%;
+                        }
+                        p {
+                            font-size: 12px;
+                            span, strong {
+                                font-size: inherit;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.list {
+                thead {
+                    display: none;
+                }
+                table {
+                    tbody {
+                        td {
+                            display: block;
+                            &[data-date] {
+                                width: 100%;
+                                div {
+                                    height: auto;
+                                    min-height: 66px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //Date Range View
+    .date_range {
+        text-align: center;
+        background: $cal_date_bg;
+        padding: 2rem 1rem 1rem;
+        label {
+            display: inline-block;
+            width: 50px;
+            margin-left: -50px;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+// ==========================================================================
+// #Level5: Mixins
+// ==========================================================================
+//
+//  Table of content
+//
+//  Media Query
+
+
+
+// #Mixins: Media Query
+// ==========================================================================
+
+    //Mixin: Media Query
+    @mixin l5-media-query($name) {
+
+        @if not map-has-key($breakpoints, $name) {
+            @warn "Level 5: Warning: `#{$name}` is not a valid breakpoint name.";
+        } @else {
+            @media (min-width: map-get($breakpoints, $name)) {
+                @content;
+                }
+            }
+    
+      }

@@ -1,0 +1,85 @@
+.single-page {
+    h1 {
+        margin-bottom: 30px;
+        margin-top: 0;
+        @include breakpoint(medium) {
+            margin-top: 40px;
+          }
+    }
+    .single-meta {
+        background: $white;
+        margin-top: 0;
+        margin-bottom: 35px;
+        .meta-info {
+            margin-bottom: 5px;
+            color: $black;
+            font-weight: 700;
+        }
+    }
+    .textContent:first-of-type .content-typography p:first-of-type {
+        @include breakpoint(medium) {
+          font-size: 20px;
+          line-height: 30px;
+        }
+    }
+}
+.related-articles {
+    background: #030134;
+    padding-top: 3em;
+    padding-bottom: 4em;
+    clip-path: polygon(0 0, 100% 2%, 100% 100%, 0 100%);
+    @include breakpoint(medium) {
+        padding-top: 5em;
+        clip-path: polygon(0 0, 100% 7%, 100% 100%, 0 100%);
+    }
+    &.full-width-component.limit-inner-div-content > div {
+        max-width: 1080px !important;
+        position: relative;
+        z-index: 1;
+    }
+    .component-title-wrapper {
+        margin-bottom: 3em;
+        .component-title {
+            color: $white;
+        }
+    }
+    .related-articles-list {
+        @include breakpoint(medium) {
+            display: flex;
+            justify-content: center;
+        }
+        .case-studies-item {
+            color: #fff;
+            position: relative;
+            height: auto;
+            width: 95%;
+            background: #fff;
+            display: flex !important;
+            flex-direction: column;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            @include breakpoint(medium) {
+                width: 48%;
+                max-width: 33.3%;
+                margin: 0 10px;
+            }
+            @include breakpoint(xlarge) {
+                margin: 0 20px;
+            }
+            .case-study-image {
+                transform: scale(1.01);
+            }
+            .case-study-content {
+                padding: 5px 15px 15px;
+                p {
+                    width: 100%;
+                }
+                .case-study-link {
+                }
+            }
+        }
+    }
+}

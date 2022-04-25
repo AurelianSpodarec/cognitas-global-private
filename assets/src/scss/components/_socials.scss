@@ -1,0 +1,23 @@
+.socials {
+  @include list-unstyled;
+
+  &-item {
+    padding-right: 1em;
+    display: inline;
+    
+
+    .button {
+      opacity: 0.6;
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $white;
+    font-size: rem(23);
+    transition: all 0.3s ease-out;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+section.title-content-buttons {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 3em;
+    &.full-width-component.limit-inner-div-content > div {
+        max-width: 1080px !important;
+    }
+    .button-holder {
+        margin-top: 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include breakpoint(medium) {
+            margin-top: 4em;
+            flex-direction: row;
+        }
+        .button {
+            margin: 0 10px 20px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            @include breakpoint(medium) {
+                margin: 0 10px;
+            }
+        }
+    }
+    .component-content {
+        margin-top: 3em;
+        text-align: center;
+        ul, ol {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+}

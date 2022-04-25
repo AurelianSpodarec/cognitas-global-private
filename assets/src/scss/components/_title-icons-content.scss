@@ -1,0 +1,90 @@
+section.title-icons-content {
+    .home & {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+    &.full-width-component.limit-inner-div-content > div {
+        max-width: 1080px !important;
+        position: relative;
+        z-index: 1;
+    }
+    .icon-items-container {
+        position: relative;
+        margin-top: 2em;
+        @include breakpoint(medium) {
+            margin-top: 4em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        @include breakpoint(xlarge) {
+            flex-wrap: nowrap;
+        }
+        @include breakpoint(medium) {
+            .left-container {
+                width: 100%;
+                display: flex;
+            }
+        }
+        .icon-item {
+            width: 100%;
+            position: relative;
+            margin-right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding: 0 10px 30px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(153, 153, 153, 0.5);
+            @include breakpoint(medium) {
+                margin-bottom: 30px;
+                border-bottom: 0;
+                border-right: 1px solid rgba(153, 153, 153, 0.5);
+                margin-right: 5px;
+                margin-left: 5px;
+                padding: 0 10px 15px;
+                width: calc(33% - 20px);
+                &:nth-child(3n) {
+                    border-right: 0;
+                }
+            }
+            @include breakpoint(xlarge) {
+                width: calc(100% - 20px);
+                margin-bottom: 0;
+                &:nth-child(3n) {
+                    border-right: 1px solid rgba(153, 153, 153, 0.5);
+                }
+            }
+            .icon-image-container {
+                min-height: 130px;
+                display: flex;
+                align-items: flex-end;
+                margin-bottom: 20px;
+                img {
+                    max-width: 100%;
+                    width: 100%;
+                    @include breakpoint(xlarge) {
+                        max-width: 500px;
+                    }
+                }
+            }
+            .icon-title {
+                margin-bottom: 0;
+                width: 100%;
+            }
+            &:last-child {
+                border-right: 0;
+            }
+        }
+    }
+    .component-content {
+        margin-top: 4em;
+        text-align: center;
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+.button-holder {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 6px;
+  background: transparent;
+  color: $white;
+  padding: 5px 30px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1px;
+  min-width: 225px;
+  min-height: 46px;
+  &.fill-pink {
+    background: $pink;
+  }
+  &.fill-blue {
+    background: $blue;
+  }
+}
+
+@include breakpoint(xxlarge) {
+  .animate-button {
+    /*&.underline {
+      position: relative;
+      &.fill-blue {
+        &:after {
+          background: $pink;
+        }
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        height: 5px;
+        background: $blue;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        transition: width 0.3s ease-out;
+      }
+      &:hover {
+        box-shadow: 0 10px 10px -10px rgba(0, 180, 255, 0.5);
+        &:after {
+          width: 100%;
+        }
+      }
+    }*/
+    &.grow {
+      transform: perspective(1px) translateZ(0);
+      transition: all 0.3s ease-out;
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(255, 0, 137, 0);
+      &.fill-blue {
+        box-shadow: 0 0 1px rgba(0, 180, 255, 0);
+      }
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 10px -10px rgba(255, 0, 137, 0.8);
+        &.fill-blue {
+          box-shadow: 0 10px 10px -10px rgba(0, 180, 255, 0.8);
+        }
+      }
+    }
+    /*&.fill {
+      transition: all 0.3s ease-out;
+      &:hover {
+        background: $primary !important;
+      }
+      &.fill-primary {
+        &:hover {
+          color: $white;
+          background: $primary !important;
+        }
+      }
+      &.fill-secondary {
+        &:hover {
+          background: $secondary !important;
+        }
+      }
+    }*/
+  }
+}

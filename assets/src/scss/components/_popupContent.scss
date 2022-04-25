@@ -1,0 +1,167 @@
+.popupContent {
+    .component-title {
+        font-size: 26px;
+        line-height: 52px;
+        margin-bottom: 15px;
+    }
+    .popupContent-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .popupContent-container--item {
+            @include backgroundFill;
+            width: 48%;
+            margin-bottom: 3vw;
+            &:nth-child(even) {
+                margin-right: 0;
+            } 
+            
+            @include breakpoint(xlarge){
+                width: calc(33.33% - 14px);
+                margin-right: 20px;
+                margin-bottom: 20px;
+                &:nth-child(even) {
+                    margin-right: 20px;
+                }
+                &:nth-child(3n+3) {
+                    margin-right: 0;
+                }
+            }
+            position: relative;
+            text-align:center;
+            cursor: pointer;
+            .popupContent-container--title{
+                z-index: 1;
+                text-transform: uppercase;
+                margin: 0;
+                @include centerIt;
+                transition: all 0.5s;
+                color: $white;
+                font-size: 1.5vw;
+                line-height: 1.8vw;
+                @include maxWidth(1330){
+                    font-size: 17px;
+                    line-height: 24px;
+                }
+            }
+            &:after {
+                content:"";
+                background: rgba(0,0,0,0.3);
+                display: block;
+                padding-top: 100%;
+                width: 100%;
+                opacity: 1;
+                transition: all 0.5s;
+            }
+            &:hover, &.active {
+                 &:after {
+                    background: $blue;
+                 }
+                 .popupContent-container--title {
+                    color: $white;
+                    z-index: 0;
+                }
+            }
+            
+
+            .popup {
+                cursor: default;
+                @include centerIt($pos: fixed);
+                z-index: 101;
+                padding: 0;
+                background: $white;
+                text-align:left;
+                max-height: 0vh;
+                max-width: 800px;
+                box-sizing: border-box;
+                overflow: hidden;
+                -webkit-overflow-scrolling: touch;
+                h2 {
+                    font-size: 24px;
+                    line-height: 30px;
+                    margin-bottom: 20px;
+                    text-transform: none;
+                    strong {
+                        display: block;
+                        font-weight: 400;
+                        font-size: 18px;
+                        line-height: 26px;
+                        margin-top: 10px;
+                        @include breakpoint(large){
+                            font-size: 18px;
+                            line-height: 26px;
+                        }
+                    }
+                }
+                p {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+                img {
+                    display: block;
+                }
+            }
+            &.active { 
+                z-index: 100;
+                pointer-events: none;
+                .popupContent-container--title {
+                    z-index: 0;
+                }
+                .popup {
+                    max-height: calc(90vh - 35px);
+                    width: 90vw;
+                    margin-top: 35px;
+                    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+                    
+                    @include breakpoint(xlarge){
+                        max-height: 80vh;
+                        
+                    }
+                    .content {
+                        margin: 1.5em 3em 0;
+                        padding: 0 0.5em 2.5em;
+                        max-height: 80vh;
+                        overflow: auto;
+                        box-sizing: border-box;
+                        pointer-events: all;
+                        
+                        img{
+                            -webkit-touch-callout: none;
+                            -webkit-user-select: none;
+                            -khtml-user-select: none;
+                            -moz-user-select: none;
+                            -ms-user-select: none;
+                            user-select: none; 
+                        }
+                    }
+                }
+                .close {
+                    @include popupClose;
+                    pointer-events: all;
+                }
+                &:before {
+                    content:"";
+                    z-index: 100;
+                    @include centerIt($pos: fixed);
+                    background: rgba(196,196,196,0.7);
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: all;
+                }
+
+                .next, .prev {
+                    position: absolute;
+                    top: 50%;
+                    font-size: 32px;
+                    pointer-events: all;
+                }
+                .next {
+                    right: 10px;
+                }
+                .prev {
+                    left: 10px;
+                }
+            }
+        }
+    }
+}

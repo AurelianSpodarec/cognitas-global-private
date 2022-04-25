@@ -1,0 +1,46 @@
+{
+    "key": "group_5eb14f2935b26",
+    "title": "Component: Case Study Blocks",
+    "fields": [
+        {
+            "key": "field_5eb14f351cde3",
+            "label": "Case Studies",
+            "name": "case_studies",
+            "type": "post_object",
+            "instructions": "Please select 2 Case Studies.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "casestudy"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "object",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1588764966
+}

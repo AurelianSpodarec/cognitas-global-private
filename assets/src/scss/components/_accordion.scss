@@ -1,0 +1,77 @@
+.accordion {
+    margin-bottom: 4em;
+  &-item {
+    border-bottom: 1px solid #DCDBDB;
+    padding: 22px 0;
+    transition: border 0.25s ease;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    color: $red;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    position: relative;
+    @include breakpoint(xlarge) {
+      font-size: 20px;
+    }
+    span {
+      margin-left: 20px;
+      padding-right: 70px;
+    }
+
+    &::after {
+        font-family: "FontAwesome";
+        content: '\f105';
+        position: absolute;
+        margin: auto;
+        bottom: -1px;
+        right: 30px;
+        color: $red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4em;
+        opacity: 1;
+        transform-origin: center center;
+        transform: rotate(90deg);
+        transition: all 0.3s ease-out;
+
+      .accordion-item--active & {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &-content {
+    display: none;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  &.staff-accordion {
+	  .subsection-anchors {
+		  ul {
+			  list-style: none;
+			  padding: 0;
+			  margin: 0;
+			  display: flex;
+			  justify-content: center;
+			  li {
+				  margin: 0 10px 0 0;
+				  &:before {
+					  display: none;
+				  }
+				  a {
+					color: $blue;
+					text-decoration: underline;
+					&:hover {
+						text-decoration: none;
+					}
+				  }
+			  }
+		  }
+	  }
+  }
+}

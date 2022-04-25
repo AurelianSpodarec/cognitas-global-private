@@ -1,0 +1,105 @@
+// ==========================================================================
+// #Module: Logo Slider - bad name
+// ==========================================================================
+
+.slider-logos {
+    
+    &__item {
+        position: relative;
+    }
+
+}
+
+.logo-slider .slick-slide {
+    width: auto!important;
+    float: left;
+    height: 100%;
+    // min-height: 1px;
+    min-width: 200px;
+    width: auto;
+}
+
+.logo-slider {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    @include breakpoint(medium) {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+    @include breakpoint(xlarge) {
+        padding-top: 3em;
+        padding-bottom: 3em;
+    }
+    &.full-width-component.limit-inner-div-content > div {
+        max-width: none !important;
+        z-index: 1;
+        position: relative;
+    }
+    .component-title-wrapper .component-title {
+        margin-bottom: 40px;
+    }
+    &-container {
+        .slick-arrow {
+            position: absolute;
+            left: 0;
+            color: $orange;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: none !important;
+            height: 100%;
+            width: 20px;
+            @include breakpoint(large) {
+                left: -15px;
+            }
+            @include breakpoint(xlarge) {
+                left: -30px;
+            }
+            &.slick-next {
+                right: 0;
+                left: auto;
+                @include breakpoint(large) {
+                    right: -15px;
+                }
+                @include breakpoint(xlarge) {
+                    right: -30px;
+                }
+            }
+        }
+        .slick-prev, .slick-next {
+            &:before {
+                color: $orange;
+                opacity: 1;
+            }
+        }
+    	.slick-track {
+    		display: flex !important;
+            justify-content: space-evenly;
+            .slick-slide {
+                justify-content: center;
+                align-items: center;
+                margin: auto 0;
+                padding: 0 25px;
+                display: flex !important;
+                width: auto!important;
+                box-sizing: border-box;
+            }
+    	}
+    	.logo-slider-logo-holder {
+            a {
+                display: block;
+            }
+    		img {
+    			max-width: 100%;
+                display: block !important;
+                width: auto;
+                max-height: 75px;
+    		}
+    	}
+    }
+}
+
+

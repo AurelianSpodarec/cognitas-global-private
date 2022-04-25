@@ -1,0 +1,105 @@
+.two_column_content {
+    position: relative;
+    padding-top: 30px;
+    @include breakpoint(medium) {
+        .smaller-images {
+            .two_column_content-item {
+                .two_column_content-image {
+                    width: 38%;
+                }
+                .two_column_content-text {
+                    width: 58%;
+                }
+            }
+        }
+    }
+	&-item {
+        overflow: hidden;
+		margin-bottom: 50px;
+		@include breakpoint(medium) {
+			display: flex;
+			justify-content: space-between;
+		}
+		@include breakpoint(medium) {
+			&.image-right {
+				.two_column_content-image {
+                    order: 1;
+                    padding-right: 0;
+                    box-sizing: border-box;
+                    width: 48%;
+                    img {
+                        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 93%);
+                        width: 100%;
+                    }
+                }
+                .two_column_content-text {
+                    width: 48%;
+                    h3 {
+                        &:after {
+                            left: 0;
+                            right: auto;
+                        }
+                    }
+                }
+			}
+		}
+		.two_column_content-image {
+            margin-bottom: 20px;
+			@include breakpoint(medium) {
+				width: 48%;
+				flex-shrink: 0;
+                margin-bottom: 0;    
+                box-sizing: border-box;
+			}
+			img {
+				max-width: 100%;
+                height: auto;
+                position: relative;
+                z-index: 1;
+                clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%);
+                width: 100%;
+			}
+        }
+        .alternating-content {
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+		.two_column_content-text {
+            line-height: 30px;
+			@include breakpoint(medium) {
+				width: 48%;
+            }
+            h3 {
+                color: #01013B;
+                font-weight: 400;
+                position: relative;
+                padding-bottom: 12px;
+                margin-top: 10px;
+                margin-bottom: 30px;
+                display: inline-block;
+                padding-right: 15px;
+                &:after {
+                    content: '';
+                    width: 500%;
+                    height: 2px;
+                    background: $pink;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+            .read-more {
+                color: $pink;
+                display: inline-block;
+                margin-top: 10px;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

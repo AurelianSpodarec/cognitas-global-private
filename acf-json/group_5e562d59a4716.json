@@ -1,0 +1,43 @@
+{
+    "key": "group_5e562d59a4716",
+    "title": "Sub Navigation Anchor",
+    "fields": [
+        {
+            "key": "field_5e562d59aef5d",
+            "label": "Anchor Reference",
+            "name": "navigation_title",
+            "type": "text",
+            "instructions": "1) Add a unique title here to create an anchor point on the page. eg. 'Our Team'\r\n2) In the menu item you will need to reference this in the following way. eg. '\/pagename#our-team'",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1593164384
+}
